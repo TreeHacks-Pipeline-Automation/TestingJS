@@ -1,0 +1,14 @@
+name: Check formatting with yapf
+
+on: [push]
+
+jobs:
+  i dont like the name here lol:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check formatting
+        uses: poetry/actions-check-formatting@v1
+        with:
+          file: "main.py"
+          yapf_config: |
+            [extends]
