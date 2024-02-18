@@ -1,0 +1,15 @@
+name: Check linting
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check linting
+        id: lint
+        run: |
+          pylint --config .pylintrc --check .
