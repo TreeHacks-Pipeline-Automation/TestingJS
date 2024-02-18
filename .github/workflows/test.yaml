@@ -1,0 +1,19 @@
+name: Check Code Formatting
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check code formatting
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        env:
+          PRETTYER_ARGS: '--write --config .prettierrc'
+        run: |
+          prettier --write --config .prettierrc
