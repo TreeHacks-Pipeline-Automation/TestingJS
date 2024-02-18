@@ -1,0 +1,19 @@
+name: Check Prettier Formatting
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Check Prettier formatting
+        run: npm run prettier --check
+        env:
+          NPM_CONFIG_PRETTY_PRINT: "error"
